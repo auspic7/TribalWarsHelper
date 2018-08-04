@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>561</width>
+    <height>314</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>확인</string>
+     <string>Submit</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -37,7 +37,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>로그인</string>
+     <string>Login</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="usernameLine">
@@ -59,6 +59,9 @@
       <height>21</height>
      </rect>
     </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -66,10 +69,16 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>561</width>
      <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuTribalWarsHelper">
+    <property name="title">
+     <string>TribalWarsHelper</string>
+    </property>
+   </widget>
+   <addaction name="menuTribalWarsHelper"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

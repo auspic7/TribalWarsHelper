@@ -1,14 +1,13 @@
 import sys
-import requests
-from selenium import webdriver
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
+from TribalWarsController import TribalWarsController
 
-driver = webdriver.Chrome('./chromedriver')
 form_class = uic.loadUiType("mainwindow.ui")[0]
-
+helper = TribalWarsController()
 
 class MyWindow(QMainWindow, form_class):
+    isLootAssistantOn = False
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -16,13 +15,11 @@ class MyWindow(QMainWindow, form_class):
 
     def login_button_slot(self):
         print("Login Button Clicked.")
-        driver.get("https://www.tribalwars.net/en-dk/")
+        print(helper.login(self.usernameLine.text(), self.passwordLine.text()))
 
-        driver.find_element_by_xpath('//*[@id="user"]').send_keys(self.usernameLine.text())
-        driver.find_element_by_xpath('//*[@id="password"]').send_keys(self.passwordLine.text())
-
-        driver.find_element_by_xpath('//*[@id="login_form"]/div/div/a').click()
-        driver.find_element_by_xpath('//*[@id="home"]/div[3]/div[3]/div[10]/div[3]/div[2]/div[1]/a/span').click()
+    def auto_loot_assistant_slot(self):
+        self.isLootAssistantOn = ~self.isLootAssistantOn
+        print("Auto loot assistant ")
 
 
 if __name__ == "__main__":
